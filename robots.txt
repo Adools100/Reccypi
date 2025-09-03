@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://adools100.github.io/Reccypi/sitemap.xml

@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html{
+  scrollbar-color: #5aa35c rgb(253, 252, 252);
+  scroll-behavior: smooth;
+  scroll-padding: 30%;
+}
+
+body {
+  background: #f9fafc;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Navbar --- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4CAF50;
+  letter-spacing: 1px;
+}
+
+nav input[type="text"] {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  width: 250px;
+  outline: none;
+  transition: 0.3s;
+}
+
+nav input[type="text"]:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.3);
+}
+
+/* --- Recipe Grid --- */
+.recipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #4CAF50;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #43a047;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #fff;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+  margin-top: 2rem;
+}
