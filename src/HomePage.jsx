@@ -16,7 +16,6 @@ const HomePage = () => {
           `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`
         );
         const data = await res.json();
-        console.log(data);
         setErr(false);
         setRecipes(data.meals || []);
       } catch (error) {
@@ -36,7 +35,6 @@ const HomePage = () => {
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`
       );
       const data = await res.json();
-      console.log(data);
       setRecipes(data.meals || []);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -53,7 +51,6 @@ const HomePage = () => {
           onSubmit={(e) => {
             e.preventDefault();
             getInfo(inputValue);
-            console.log(inputValue);
           }}
           action=""
         >

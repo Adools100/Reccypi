@@ -23,8 +23,6 @@ const RecipiePage = () => {
         );
         const data = await res.json();
         setRecipe(data.meals);
-        console.log(data.meals);
-        console.log(id);
         setErr(false);
         setRecipesToMap(data.meals || []);
       } catch (error) {
@@ -72,34 +70,37 @@ const RecipiePage = () => {
         </div>
 
         {loading && <p>Loading recipes...</p>}
-        {!loading && recipe.length === 0 && <p>No recipes found 😢</p>}
-        <div>
-          <div className="recipe-image">
-            <img src={recipe[0].strMealThumb} alt={recipe[0].strMeal} />
-          </div>
+        {!loading && recipe.length === 0 ? (
+          <p>No recipes found 😢</p>
+        ) : (
+          <div>
+            <div className="recipe-image">
+              <img src={recipe[0].strMealThumb} alt={recipe[0].strMeal} />
+            </div>
 
-          <div className="recipe-info">
-            <h2>Ingredients</h2>
-            <ul className="ingredients-list">
-              {arrOfStuff.map((item) => {
-                return (
-                  item.Ingredient && (
-                    <li>{`${item.Ingredient} - ${item.Measure}`}</li>
-                  )
-                );
-              })}
-            </ul>
-          </div>
+            <div className="recipe-info">
+              <h2>Ingredients</h2>
+              <ul className="ingredients-list">
+                {arrOfStuff.map((item) => {
+                  return (
+                    item.Ingredient && (
+                      <li>{`${item.Ingredient} - ${item.Measure}`}</li>
+                    )
+                  );
+                })}
+              </ul>
+            </div>
 
-          <div className="recipe-instructions">
-            <h2>Instructions</h2>
-            <p>{recipe[0].strInstructions}</p>
-          </div>
+            <div className="recipe-instructions">
+              <h2>Instructions</h2>
+              <p>{recipe[0].strInstructions}</p>
+            </div>
 
-          <Link to="/" className="back-button">
-            ← Back
-          </Link>
-        </div>
+            <Link to="/" className="back-button">
+              ← Back
+            </Link>
+          </div>
+        )}
       </div>
 
       <footer>&copy; 2025 Reccypi | Made with 💙 by Adools</footer>
