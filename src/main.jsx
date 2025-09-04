@@ -11,8 +11,8 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element= {<HomePage />}></Route>
-      <Route path='/recipie/:id' element= {<RecipiePage />}></Route>
+      <Route path='/Reccypi' element= {<HomePage />}></Route>
+      <Route path='/Reccypi/recipie/:id' element= {<RecipiePage />}></Route>
     </Routes>
     </BrowserRouter>
   </StrictMode>

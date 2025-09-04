@@ -74,7 +74,7 @@ const HomePage = () => {
               <p>
                 {meal.strCategory} - {meal.strArea}
               </p>
-              <Link to={`/recipie/${meal.idMeal}`} className="btn">
+              <Link to={`/Reccypi/recipie/${meal.idMeal}`} className="btn">
                 View Recipe
               </Link>
             </div>

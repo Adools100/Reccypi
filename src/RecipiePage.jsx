@@ -96,7 +96,7 @@ const RecipiePage = () => {
               <p>{recipe[0].strInstructions}</p>
             </div>
 
-            <Link to="/" className="back-button">
+            <Link to="/Reccypi" className="back-button">
               ← Back
             </Link>
           </div>
