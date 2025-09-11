@@ -5,6 +5,12 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html {
+  scrollbar-color: #5aa35c rgb(253, 252, 252);
+  scroll-behavior: smooth;
+  scroll-padding: 30%;
+}
+
 body {
   background: #f9fafc;
   color: #333;
@@ -16,7 +22,6 @@ a {
   color: inherit;
 }
 
-/* --- Navbar --- */
 nav {
   display: flex;
   justify-content: space-between;
@@ -32,17 +37,170 @@ nav {
 nav .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #4CAF50;
+  color: #4caf50;
   letter-spacing: 1px;
 }
 
+nav input {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 25px;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  min-width: 300px;
+}
+
+nav input:focus {
+  border-color: #4caf50;
+}
+
+.recipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-body h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.card-body p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #4caf50;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background: #45a049;
+}
+
+.no-recipes {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 3rem;
+}
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-content {
+  text-align: center;
+  color: #fff;
+}
+
+.spinner {
+  
+}
+
+
+.loader-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.loader-text {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Search Loading (when searching with existing recipes) */
+.search-loading {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: #4caf50;
+}
+
+.search-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(76, 175, 80, 0.3);
+  border-top: 3px solid #4caf50;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  animation: spin 1s linear infinite;
+}
+
+.search-loading p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Recipe Container Styles */
 .recipe-container {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
 }
 
@@ -93,7 +251,7 @@ nav .logo {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.6rem 1.2rem;
-  background: #5aa35c;
+  background: #4caf50;
   color: #fff;
   border-radius: 6px;
   text-decoration: none;
@@ -101,5 +259,35 @@ nav .logo {
 }
 
 .back-button:hover {
-  background: #005bb5;
+  background: #45a049;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgb(73, 72, 72);
+  color: black;
+  margin-top: 3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  nav input {
+    min-width: 250px;
+  }
+
+  .recipes {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .loader-title {
+    font-size: 2rem;
+  }
 }

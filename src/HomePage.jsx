@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Loader from './components/Loader';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -10,6 +11,10 @@ const HomePage = () => {
   const [err, setErr] = useState(false);
 
   useEffect(() => {
+    console.log("Hey i guess you're an Engineer 😎");
+    console.log('contact me at :');
+    console.log('adoolslimitless@gmail.com');
+
     async function getInfoOnMount(foodName) {
       try {
         const res = await fetch(
@@ -30,6 +35,7 @@ const HomePage = () => {
   }, []);
 
   async function getInfo(foodName) {
+    setLoading(true); // Show loading when searching
     try {
       const res = await fetch(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`
@@ -41,6 +47,11 @@ const HomePage = () => {
     } finally {
       setLoading(false);
     }
+  }
+
+  // Show full screen loader on initial load
+  if (loading && recipes.length === 0) {
+    return <Loader />;
   }
 
   return (
@@ -64,9 +75,14 @@ const HomePage = () => {
       </nav>
 
       <section className="recipes">
-        {loading && <p>Loading recipes...</p>}
-        {!loading && recipes.length === 0 && <p>No recipes found 😢</p>}
-        {recipes.map((meal) => (
+        {loading && recipes.length > 0 && (
+          <div className="search-loading">
+            <div className="search-spinner"></div>
+            <p>Searching recipes...</p>
+          </div>
+        )}
+        {!loading && recipes.length === 0 && <p className="no-recipes">No recipes found 😢</p>}
+        {!loading && recipes.map((meal) => (
           <div key={meal.idMeal} className="card">
             <img src={meal.strMealThumb} alt={meal.strMeal} />
             <div className="card-body">
