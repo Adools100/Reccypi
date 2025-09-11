@@ -55,7 +55,7 @@ const RecipiePage = () => {
             <h2>Recipe Not Found 😢</h2>
             <p>Sorry, we couldn't find the recipe you're looking for.</p>
             <Link to="/Reccypi" className="back-button">
-              ← Back to Home
+              ← Back
             </Link>
           </div>
         </div>
